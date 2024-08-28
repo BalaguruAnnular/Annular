@@ -1,0 +1,1353 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/28/2024 5:52:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-505S4B1B"
+  DTS:CreatorName="LAPTOP-505S4B1B\parimala"
+  DTS:DTSID="{F6823D25-24C1-4F20-8F8C-9C1AF7EF4E8C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Yr2Qr"
+  DTS:PackageType="5"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{B31FD58F-7B2C-43DB-BD28-B35D9811DFC9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-505S4B1B.TutorialDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6F7F7274-23C5-46AB-9ED0-0D11886A1AB0}"
+      DTS:ObjectName="LAPTOP-505S4B1B.TutorialDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-505S4B1B;Initial Catalog=TutorialDB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Yr2Qr-{6F7F7274-23C5-46AB-9ED0-0D11886A1AB0}LAPTOP-505S4B1B.TutorialDB;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Yr2Qr Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9C957078-E7D2-473A-B7F9-3139F156A95A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Yr2Qr Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Yr2Qr Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Q1]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Yr2Qr Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-505S4B1B.TutorialDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-505S4B1B.TutorialDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Domain"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Domain]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Domain]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Location]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Location"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Location]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Value]"
+                      cachedDataType="r8"
+                      cachedName="Value"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Value]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Transaction_count]"
+                      cachedDataType="r8"
+                      cachedName="Transaction_count"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Transaction_count]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Transaction_count]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbTimeStamp"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Domain" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      dataType="wstr"
+                      length="255"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      dataType="r8"
+                      name="Value" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Transaction_count]"
+                      dataType="r8"
+                      name="Transaction_count" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Yr2Qr Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Yr2Qr Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Yr2Qr Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Yr2Qr Task\OLE DB Destination 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Q3]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Yr2Qr Task\OLE DB Destination 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-505S4B1B.TutorialDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-505S4B1B.TutorialDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Domain"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Domain]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Domain]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Location]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Location"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Location]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Value]"
+                      cachedDataType="r8"
+                      cachedName="Value"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Value]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Transaction_count]"
+                      cachedDataType="r8"
+                      cachedName="Transaction_count"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Transaction_count]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Transaction_count]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbTimeStamp"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Domain" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      dataType="wstr"
+                      length="255"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      dataType="r8"
+                      name="Value" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Transaction_count]"
+                      dataType="r8"
+                      name="Transaction_count" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Yr2Qr Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Yr2Qr Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Yr2Qr Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Yr2Qr Task\OLE DB Destination 2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Q4]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Yr2Qr Task\OLE DB Destination 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-505S4B1B.TutorialDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-505S4B1B.TutorialDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].Columns[Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Domain"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[Domain]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Domain]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].Columns[Location]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Location"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Location]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].Columns[Value]"
+                      cachedDataType="r8"
+                      cachedName="Value"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Value]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].Columns[Transaction_count]"
+                      cachedDataType="r8"
+                      cachedName="Transaction_count"
+                      externalMetadataColumnId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[Transaction_count]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Transaction_count]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbTimeStamp"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Domain" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      dataType="wstr"
+                      length="255"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      dataType="r8"
+                      name="Value" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[Transaction_count]"
+                      dataType="r8"
+                      name="Transaction_count" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Yr2Qr Task\OLE DB Destination 2.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Yr2Qr Task\OLE DB Destination 2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\OLE DB Destination 2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Yr2Qr Task\OLE DB Destination 2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Yr2Qr Task\Quarterly Final Output"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Quarterly Final Output"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Quarterly_Output]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Yr2Qr Task\Quarterly Final Output.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-505S4B1B.TutorialDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-505S4B1B.TutorialDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].Columns[Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Domain"
+                      externalMetadataColumnId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].ExternalColumns[Domain]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Domain]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].Columns[Location]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Location"
+                      externalMetadataColumnId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Location]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].Columns[Value]"
+                      cachedDataType="r8"
+                      cachedName="Value"
+                      externalMetadataColumnId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Value]" />
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].Columns[Transaction_count]"
+                      cachedDataType="r8"
+                      cachedName="Transaction_count"
+                      externalMetadataColumnId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].ExternalColumns[Transaction_count]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Transaction_count]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbTimeStamp"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].ExternalColumns[Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Domain" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      dataType="wstr"
+                      length="255"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      dataType="r8"
+                      name="Value" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input].ExternalColumns[Transaction_count]"
+                      dataType="r8"
+                      name="Transaction_count" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Yr2Qr Task\Quarterly Final Output.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Quarterly Final Output.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Yr2Qr Task\Quarterly Final Output.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Quarterly Final Output.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Yr2Qr Task\Quarterly Final Output.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Yr2Qr Task\Quarterly segregated"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Quarterly segregated"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Yr2Qr Task\Quarterly segregated.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Yr2Qr Task\Quarterly segregated.Inputs[Conditional Split Input].Columns[Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Q1_Output]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Q1_Output"
+                  synchronousInputId="Package\Yr2Qr Task\Quarterly segregated.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[MONTH](#{Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]}) == 1 || [MONTH](#{Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]}) == 2 || [MONTH](#{Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]}) == 3</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">MONTH(Date) == 1 || MONTH(Date) == 2 || MONTH(Date) == 3</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Q2_Output]"
+                  description="Output 5 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Q2_Output"
+                  synchronousInputId="Package\Yr2Qr Task\Quarterly segregated.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[MONTH](#{Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]}) == 4 || [MONTH](#{Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]}) == 5 || [MONTH](#{Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]}) == 6</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">MONTH(Date) == 4 || MONTH(Date) == 5 || MONTH(Date) == 6</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Q3_Output]"
+                  description="Output 6 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Q3_Output"
+                  synchronousInputId="Package\Yr2Qr Task\Quarterly segregated.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[MONTH](#{Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]}) == 7 || [MONTH](#{Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]}) == 8 || [MONTH](#{Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]}) == 9</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">MONTH(Date) == 7 || MONTH(Date) == 8 || MONTH(Date) == 9</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">2</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Q4_Output]"
+                  description="Output 7 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Q4_Output"
+                  synchronousInputId="Package\Yr2Qr Task\Quarterly segregated.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[MONTH](#{Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]}) == 10 || [MONTH](#{Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]}) == 11 || [MONTH](#{Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]}) == 12</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">MONTH(Date) == 10 || MONTH(Date) == 11 || MONTH(Date) == 12</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">3</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Final]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Final"
+                  synchronousInputId="Package\Yr2Qr Task\Quarterly segregated.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Yr2Qr Task\Quarterly segregated.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Yr2Qr Task\Yearly data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Yearly data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[BankData]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Date]
+      ,[Domain]
+      ,[Location]
+      ,[Value]
+      ,[Transaction_count]
+FROM [TutorialDB].[dbo].[BankData];</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Yr2Qr Task\Yearly data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-505S4B1B.TutorialDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-505S4B1B.TutorialDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Domain]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].ExternalColumns[Domain]"
+                      length="255"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Domain]"
+                      name="Domain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Location]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].ExternalColumns[Location]"
+                      length="255"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Location]"
+                      name="Location"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Value]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].ExternalColumns[Value]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Value]"
+                      name="Value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Transaction_count]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].ExternalColumns[Transaction_count]"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].Columns[Transaction_count]"
+                      name="Transaction_count"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      dataType="dbTimeStamp"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].ExternalColumns[Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Domain" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].ExternalColumns[Location]"
+                      dataType="wstr"
+                      length="255"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].ExternalColumns[Value]"
+                      dataType="r8"
+                      name="Value" />
+                    <externalMetadataColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output].ExternalColumns[Transaction_count]"
+                      dataType="r8"
+                      name="Transaction_count" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[Domain]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[Domain]"
+                      name="Domain" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[Location]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[Location]"
+                      name="Location" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[Value]"
+                      dataType="r8"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[Value]"
+                      name="Value" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[Transaction_count]"
+                      dataType="r8"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[Transaction_count]"
+                      name="Transaction_count" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Yr2Qr Task.Paths[OLE DB Source Output]"
+              endId="Package\Yr2Qr Task\Quarterly segregated.Inputs[Conditional Split Input]"
+              name="OLE DB Source Output"
+              startId="Package\Yr2Qr Task\Yearly data.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Yr2Qr Task.Paths[Q1_Output]"
+              endId="Package\Yr2Qr Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Q1_Output"
+              startId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Q1_Output]" />
+            <path
+              refId="Package\Yr2Qr Task.Paths[Q2_Output]"
+              endId="Package\Yr2Qr Task\Quarterly Final Output.Inputs[OLE DB Destination Input]"
+              name="Q2_Output"
+              startId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Q2_Output]" />
+            <path
+              refId="Package\Yr2Qr Task.Paths[Q3_Output]"
+              endId="Package\Yr2Qr Task\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+              name="Q3_Output"
+              startId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Q3_Output]" />
+            <path
+              refId="Package\Yr2Qr Task.Paths[Q4_Output]"
+              endId="Package\Yr2Qr Task\OLE DB Destination 2.Inputs[OLE DB Destination Input]"
+              name="Q4_Output"
+              startId="Package\Yr2Qr Task\Quarterly segregated.Outputs[Q4_Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Yr2Qr Task"
+          TopLeft="299.166650320921,65.8666662086381" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Yr2Qr Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Yr2Qr Task\Yearly data"
+          TopLeft="367.816647429682,63.8444440004782" />
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Yr2Qr Task\Quarterly Final Output"
+          TopLeft="599.961077835302,219.266665141914" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Yr2Qr Task\Quarterly segregated"
+          TopLeft="327.361092860639,212.155554263835" />
+        <EdgeLayout
+          Id="Package\Yr2Qr Task.Paths[OLE DB Source Output]"
+          TopLeft="433.416647429682,105.444444000478">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.0555545690435,106.711110263356"
+              Start="0,0"
+              End="-18.0555545690435,99.2111102633564">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.3555551316782" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49.3555551316782"
+                    Point2="0,53.3555551316782"
+                    Point3="-4,53.3555551316782" />
+                  <mssgle:LineSegment
+                    End="-14.0555545690435,53.3555551316782" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.0555545690435,53.3555551316782"
+                    Point2="-18.0555545690435,53.3555551316782"
+                    Point3="-18.0555545690435,57.3555551316782" />
+                  <mssgle:LineSegment
+                    End="-18.0555545690435,99.2111102633564" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Yr2Qr Task\OLE DB Destination"
+          TopLeft="640.22218754253,34.2666665611996" />
+        <EdgeLayout
+          Id="Package\Yr2Qr Task.Paths[Q1_Output]"
+          TopLeft="457.361092860639,212.155554263835">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="268.461094681891,-136.288887702635"
+              Start="0,0"
+              End="268.461094681891,-128.788887702635">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-42.7857375695613" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-42.7857375695613"
+                    Point2="0,-46.7857375695613"
+                    Point3="4,-46.7857375695613" />
+                  <mssgle:LineSegment
+                    End="264.461094681891,-46.7857375695613" />
+                  <mssgle:CubicBezierSegment
+                    Point1="264.461094681891,-46.7857375695613"
+                    Point2="268.461094681891,-46.7857375695613"
+                    Point3="268.461094681891,-50.7857375695613" />
+                  <mssgle:LineSegment
+                    End="268.461094681891,-128.788887702635" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="109.171641090946,-41.7857375695613,50.1178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Yr2Qr Task.Paths[Q2_Output]"
+          TopLeft="503.361092860639,236.511109702874">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="96.5999849746627,0"
+              Start="0,0"
+              End="89.0999849746627,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="89.0999849746627,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="19.4910862373314,5,50.1178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Yr2Qr Task\OLE DB Destination 1"
+          TopLeft="16.6666657560402,242.77777626106" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Yr2Qr Task\OLE DB Destination 2"
+          TopLeft="97.2222169102345,55.2222221117329" />
+        <EdgeLayout
+          Id="Package\Yr2Qr Task.Paths[Q3_Output]"
+          TopLeft="327.361092860639,232.955554263835">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-130.694427104599,30.6222219972258"
+              Start="0,0"
+              End="-123.194427104599,30.6222219972258">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-61.3472135522994,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-61.3472135522994,0"
+                    Point2="-65.3472135522994,0"
+                    Point3="-65.3472135522994,4" />
+                  <mssgle:LineSegment
+                    End="-65.3472135522994,26.6222219972258" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-65.3472135522994,26.6222219972258"
+                    Point2="-65.3472135522994,30.6222219972258"
+                    Point3="-69.3472135522994,30.6222219972258" />
+                  <mssgle:LineSegment
+                    End="-123.194427104599,30.6222219972258" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-90.4061198022994,-17.43359375,50.1178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Yr2Qr Task.Paths[Q4_Output]"
+          TopLeft="373.361092860639,212.155554263835">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-186.138875950404,-115.333332152102"
+              Start="0,0"
+              End="-186.138875950404,-107.833332152102">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-35.5920393954976" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-35.5920393954976"
+                    Point2="0,-39.5920393954976"
+                    Point3="-4,-39.5920393954976" />
+                  <mssgle:LineSegment
+                    End="-182.138875950404,-39.5920393954976" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-182.138875950404,-39.5920393954976"
+                    Point2="-186.138875950404,-39.5920393954976"
+                    Point3="-186.138875950404,-43.5920393954976" />
+                  <mssgle:LineSegment
+                    End="-186.138875950404,-107.833332152102" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-118.128344225202,-34.5920393954976,50.1178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Yr2Qr Task\Yearly data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Yr2Qr Task\Quarterly Final Output">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Yr2Qr Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Yr2Qr Task\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Yr2Qr Task\OLE DB Destination 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
